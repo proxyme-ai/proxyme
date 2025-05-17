@@ -2,17 +2,16 @@
 
 [![Verified on GitHub](https://img.shields.io/badge/Verified%20Domain-proxyme.ai-blue)](https://proxyme.ai/)
 Proxyme is an Authentication and Delegation Service with a React based user interface.
-The backend lives under `pythonHTTPcode` and exposes REST endpoints for issuing and
-validating delegation tokens. The frontend under `frontEndCode` provides a modern UI
+The backend lives under `packages/server/proxyme_service.py` and exposes REST endpoints for issuing and validating delegation tokens. The original frontend under `frontEndCode` provides a modern UI
 for interacting with the service.
 
 To start the backend run:
 
 ```bash
-python pythonHTTPcode/proxyme_service.py
+python packages/server/proxyme_service.py
 ```
 
-Then in a separate terminal run the frontend:
+Then in a separate terminal run the default frontend:
 
 ```bash
 cd frontEndCode
@@ -21,6 +20,15 @@ npm run dev
 ```
 
 This will launch the Proxyme UI at `http://localhost:5173` (default Vite port).
+
+Alternatively you can try the experimental frontend located in `frontend-alt`:
+```bash
+cd frontend-alt
+npm install
+npm run dev
+```
+This variant runs on port `5174` by default and communicates with the same backend API.
+
 
 ## License
 
