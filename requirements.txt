@@ -5,3 +5,4 @@ flask-limiter==2.4.0
 requests
 pyjwt
 flask-cors
+playwright
