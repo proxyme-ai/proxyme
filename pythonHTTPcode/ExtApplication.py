@@ -1,6 +1,6 @@
 import requests
 
-BASE_URL = "http://127.0.0.1:5001"  # Updated to local ADS service
+BASE_URL = "http://127.0.0.1:5001"  # Proxyme service URL
 
 def register_ai_agent():
     response = requests.post(f"{BASE_URL}/register_agent", json={"scopes": ["read", "write"]})
@@ -43,4 +43,4 @@ if __name__ == "__main__":
 
     except requests.exceptions.RequestException as e:
         print(f"Error: {str(e)}")
-        print("Make sure the ADS service is running at", BASE_URL)
+        print("Make sure the Proxyme service is running at", BASE_URL)
