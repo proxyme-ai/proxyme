@@ -7,7 +7,7 @@ import json
 from flask import Flask, request, jsonify, current_app
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_cors import CORS
-from audit_logger import audit_logger
+from .audit_logger import audit_logger
 import threading
 
 # Secure configuration
@@ -29,7 +29,7 @@ thread_local = threading.local()
 def get_auth_db():
     if not hasattr(thread_local, 'auth_conn'):
         if app.testing:
-            from test_proxyme import TestProxyme
+            from pythonHTTPcode.test_proxyme import TestProxyme
             thread_local.auth_conn = TestProxyme.auth_conn
         else:
             thread_local.auth_conn = sqlite3.connect(DB_FILE)
@@ -38,7 +38,7 @@ def get_auth_db():
 def get_audit_db():
     if not hasattr(thread_local, 'audit_conn'):
         if app.testing:
-            from test_proxyme import TestProxyme
+            from pythonHTTPcode.test_proxyme import TestProxyme
             thread_local.audit_conn = TestProxyme.audit_conn
         else:
             thread_local.audit_conn = sqlite3.connect("audit.db")
