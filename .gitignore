@@ -1,0 +1,9 @@
+# Ignore database files
+*.db
+
+# Ignore Python cache directories
+__pycache__/
+
+# Ignore Node.js dependencies
+frontEndCode/node_modules/
+packages/*/node_modules/
