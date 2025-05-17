@@ -29,8 +29,8 @@ thread_local = threading.local()
 def get_auth_db():
     if not hasattr(thread_local, 'auth_conn'):
         if app.testing:
-            from test_ads import TestADS
-            thread_local.auth_conn = TestADS.auth_conn
+            from test_proxyme import TestProxyme
+            thread_local.auth_conn = TestProxyme.auth_conn
         else:
             thread_local.auth_conn = sqlite3.connect(DB_FILE)
     return thread_local.auth_conn
@@ -38,8 +38,8 @@ def get_auth_db():
 def get_audit_db():
     if not hasattr(thread_local, 'audit_conn'):
         if app.testing:
-            from test_ads import TestADS
-            thread_local.audit_conn = TestADS.audit_conn
+            from test_proxyme import TestProxyme
+            thread_local.audit_conn = TestProxyme.audit_conn
         else:
             thread_local.audit_conn = sqlite3.connect("audit.db")
     return thread_local.audit_conn
@@ -437,5 +437,5 @@ def handle_error(error):
 
 # Run Flask App
 if __name__ == "__main__":
-    print("Starting Flask server on http://127.0.0.1:5001")
+    print("Starting Proxyme service on http://127.0.0.1:5001")
     app.run(debug=True, port=5001)

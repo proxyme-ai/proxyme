@@ -1,11 +1,17 @@
 import unittest
 import json
 import jwt
-from ADS import app, SECRET_KEY, OIDC_ISSUER, delegations, DelegationToken
+from pythonHTTPcode.proxyme_service import (
+    app,
+    SECRET_KEY,
+    OIDC_ISSUER,
+    delegations,
+    DelegationToken,
+)
 import sqlite3
 import os
 
-class TestADS(unittest.TestCase):
+class TestProxyme(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         # Create test client

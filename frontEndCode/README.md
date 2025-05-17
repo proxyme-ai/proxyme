@@ -1,8 +1,7 @@
-# Base44 App
+# Proxyme UI
 
-
-This app was created automatically by Base44.
-It's a Vite+React app that communicates with the Base44 API.
+This React application provides a user interface for the Proxyme service.
+It communicates with the backend API found in `pythonHTTPcode`.
 
 ## Running the app
 
@@ -17,4 +16,4 @@ npm run dev
 npm run build
 ```
 
-For more information and support, please contact Base44 support at app@base44.com.
+For more information see the repository README.

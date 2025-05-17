@@ -1,10 +1,11 @@
-# Authentication and Delegation Service (ADS)
+
+# Proxyme Authentication and Delegation Service
 
 A Flask-based service for managing AI agent authentication and delegation tokens.
 
 ## Overview
 
-The Authentication and Delegation Service (ADS) provides a secure way to:
+Proxyme provides a secure way to:
 - Register AI agents
 - Issue delegation tokens
 - Validate tokens
@@ -16,36 +17,36 @@ The Authentication and Delegation Service (ADS) provides a secure way to:
 ```mermaid
 sequenceDiagram
     participant Client
-    participant ADS
+    participant Proxyme
     participant Database
 
     %% Agent Registration
-    Client->>ADS: POST /register_agent
-    Note over Client,ADS: {"scopes": ["read", "write"]}
-    ADS->>Database: Store client credentials
-    Database-->>ADS: Success
-    ADS-->>Client: {"client_id", "client_secret"}
+    Client->>Proxyme: POST /register_agent
+    Note over Client,Proxyme: {"scopes": ["read", "write"]}
+    Proxyme->>Database: Store client credentials
+    Database-->>Proxyme: Success
+    Proxyme-->>Client: {"client_id", "client_secret"}
 
     %% Token Delegation
-    Client->>ADS: POST /delegate
-    Note over Client,ADS: {"user_id", "agent_id", "scopes"}
-    ADS->>Database: Verify agent & scopes
-    Database-->>ADS: Agent details
-    ADS-->>Client: {"delegation_token"}
+    Client->>Proxyme: POST /delegate
+    Note over Client,Proxyme: {"user_id", "agent_id", "scopes"}
+    Proxyme->>Database: Verify agent & scopes
+    Database-->>Proxyme: Agent details
+    Proxyme-->>Client: {"delegation_token"}
 
     %% Token Validation
-    Client->>ADS: POST /validate_delegation
-    Note over Client,ADS: {"delegation_token"}
-    ADS->>Database: Check revoked tokens
-    Database-->>ADS: Token status
-    ADS-->>Client: {"valid": true/false}
+    Client->>Proxyme: POST /validate_delegation
+    Note over Client,Proxyme: {"delegation_token"}
+    Proxyme->>Database: Check revoked tokens
+    Database-->>Proxyme: Token status
+    Proxyme-->>Client: {"valid": true/false}
 
     %% Token Revocation
-    Client->>ADS: POST /revoke_delegation
-    Note over Client,ADS: {"delegation_token"}
-    ADS->>Database: Store revoked token
-    Database-->>ADS: Success
-    ADS-->>Client: {"status": "revoked"}
+    Client->>Proxyme: POST /revoke_delegation
+    Note over Client,Proxyme: {"delegation_token"}
+    Proxyme->>Database: Store revoked token
+    Database-->>Proxyme: Success
+    Proxyme-->>Client: {"status": "revoked"}
 ```
 
 ## API Endpoints
@@ -83,7 +84,7 @@ pip install -r requirements.txt
 
 2. Run the server:
 ```bash
-python ADS.py
+python proxyme_service.py
 ```
 
 The server will start on http://127.0.0.1:5001
@@ -101,7 +102,7 @@ The server will start on http://127.0.0.1:5001
 
 Run the test suite:
 ```bash
-python -m unittest test_ads.py -v
+python -m unittest test_proxyme.py -v
 ```
 
 ## Development
