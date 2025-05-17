@@ -38,6 +38,22 @@ During the deploy Heroku runs the `heroku-postbuild` script found in
 `frontEndCode/package.json` to install dependencies and build the React
 application.
 
+## Deploying the Backend to Heroku
+
+The backend uses the `api` process defined in the repository `Procfile`.
+Add Heroku's Python buildpack so the service dependencies are installed:
+
+```bash
+heroku buildpacks:add heroku/python
+```
+
+Heroku automatically sets the `PORT` environment variable for Flask.
+After pushing your code, scale the backend process:
+
+```bash
+heroku ps:scale api=1
+```
+
 ## Continuous Deployment
 
 The repository includes a GitHub Actions workflow under
