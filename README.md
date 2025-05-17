@@ -25,3 +25,21 @@ This will launch the Proxyme UI at `http://localhost:5173` (default Vite port).
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
+
+## Integration Modules
+
+The `packages.integrations` package contains placeholder modules for integrating
+Proxyme with external systems such as identity providers, MCP servers, CRM
+solutions and project management tools. These stubs demonstrate how such
+integrations could be structured but they do not perform real API calls.
+
+```
+packages/integrations/
+├── identity_services.py      # Keycloak and Okta examples
+├── mcp_servers.py            # Generic MCP server integration
+├── crm_tools.py              # Example Odoo CRM integration
+└── project_management.py     # Example Redmine integration
+```
+
+These modules are covered by `tests/test_integrations.py` which exercises the
+basic stubbed functionality.
