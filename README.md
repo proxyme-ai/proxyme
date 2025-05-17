@@ -59,3 +59,15 @@ packages/integrations/
 
 These modules are covered by `tests/test_integrations.py` which exercises the
 basic stubbed functionality.
+
+## Testing
+
+Install Python and Node dependencies and run the test suite using `unittest`:
+
+```bash
+pip install -r requirements.txt
+cd frontEndCode && npm install && cd ..
+python -m unittest discover -v
+```
+
+The end-to-end tests build the React frontend and exercise the backend using a headless browser (Playwright). Running the tests will automatically install Playwright's browser binaries.
