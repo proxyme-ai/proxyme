@@ -21,3 +21,7 @@ npm run dev
 ```
 
 This will launch the Proxyme UI at `http://localhost:5173` (default Vite port).
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
