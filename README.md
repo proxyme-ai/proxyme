@@ -38,6 +38,24 @@ During the deploy Heroku runs the `heroku-postbuild` script found in
 `frontEndCode/package.json` to install dependencies and build the React
 application.
 
+## Continuous Deployment
+
+The repository includes a GitHub Actions workflow under
+`.github/workflows/ci.yml` that installs both Python and Node.js
+dependencies, builds the frontend and runs the unit tests. You can hook
+this workflow up to a Heroku app for automatic deployments:
+
+1. Generate a Heroku API key and add it as the `HEROKU_API_KEY`
+   secret on your GitHub repository.
+2. Set `HEROKU_APP_NAME` as another repository secret containing the
+   name of your Heroku application.
+3. Extend the workflow with a deploy step that pushes the contents of
+   the repository to Heroku on successful builds.
+
+With these secrets configured, every push to the `main` branch will run
+the tests and, if they pass, publish the latest code to your Heroku
+application.
+
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
