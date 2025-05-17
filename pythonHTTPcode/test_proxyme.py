@@ -1,7 +1,7 @@
 import unittest
 import json
 import jwt
-from pythonHTTPcode.proxyme_service import (
+from packages.server.proxyme_service import (
     app,
     SECRET_KEY,
     OIDC_ISSUER,
