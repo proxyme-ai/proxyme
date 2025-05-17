@@ -1,5 +1,7 @@
 # Proxyme
 
+[![Verified on GitHub](https://img.shields.io/badge/Verified%20Domain-proxyme.ai-blue)](https://proxyme.ai/)
+
 Proxyme is an Authentication and Delegation Service with a React based user interface.
 The backend lives under `pythonHTTPcode` and exposes REST endpoints for issuing and
 validating delegation tokens. The frontend under `frontEndCode` provides a modern UI
