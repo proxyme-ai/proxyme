@@ -22,6 +22,22 @@ npm run dev
 
 This will launch the Proxyme UI at `http://localhost:5173` (default Vite port).
 
+## Deploying the Frontend to Heroku
+
+The repository contains a small Express server under `frontEndCode/server.js`
+which serves the compiled Vite `dist/` directory. A `Procfile` at the repository
+root instructs Heroku to start this server. To deploy the UI:
+
+```bash
+heroku create <app-name>
+heroku buildpacks:set heroku/nodejs
+git push heroku main
+```
+
+During the deploy Heroku runs the `heroku-postbuild` script found in
+`frontEndCode/package.json` to install dependencies and build the React
+application.
+
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
