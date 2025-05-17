@@ -437,5 +437,7 @@ def handle_error(error):
 
 # Run Flask App
 if __name__ == "__main__":
-    print("Starting Proxyme service on http://127.0.0.1:5001")
-    app.run(debug=True, port=5001)
+    PORT = int(os.environ.get("PORT", 5001))
+    debug = os.environ.get("DEBUG") == "1"
+    print(f"Starting Proxyme service on http://0.0.0.0:{PORT}")
+    app.run(host="0.0.0.0", port=PORT, debug=debug)
